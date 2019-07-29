@@ -1,3 +1,12 @@
+## Instalation
+ - Clone the repo and go to the project folder
+ - `composer install`
+ - Edit the .env file if needed
+ - Create database file ` touch database/database.sqlite`
+ - Run `php artisan migrate`
+ - Run `php artisan serve` and open http://localhost:8000/register in a browser.
+ - Create an user to ad content.
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
