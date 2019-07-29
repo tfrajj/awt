@@ -3,6 +3,11 @@
     <input class="form-control" name="title" type="text" id="title" value="{{ isset($post->title) ? $post->title : ''}}" >
     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
 </div>
+<div class="form-group {{ $errors->has('teaser') ? 'has-error' : ''}}">
+    <label for="teaser" class="control-label">{{ 'Teaser' }}</label>
+    <textarea class="form-control" rows="5" name="teaser" type="textarea" id="teaser" >{{ isset($post->teaser) ? $post->teaser : ''}}</textarea>
+    {!! $errors->first('teaser', '<p class="help-block">:message</p>') !!}
+</div>
 <div class="form-group {{ $errors->has('content') ? 'has-error' : ''}}">
     <label for="content" class="control-label">{{ 'Content' }}</label>
     <textarea class="form-control" rows="5" name="content" type="textarea" id="content" >{{ isset($post->content) ? $post->content : ''}}</textarea>

@@ -23,6 +23,7 @@ class PostsController extends Controller
         if (!empty($keyword)) {
             $posts = Post::where('title', 'LIKE', "%$keyword%")
                 ->orWhere('content', 'LIKE', "%$keyword%")
+                ->orWhere('teaser', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $posts = Post::latest()->paginate($perPage);

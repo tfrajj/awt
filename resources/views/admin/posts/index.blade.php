@@ -3,9 +3,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Posts</div>
                     <div class="card-body">
@@ -30,14 +29,16 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Title</th><th>Content</th><th>Actions</th>
+                                        <th>#</th><th>Title</th><th>Teaser</th><th>Content</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($posts as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->title }}</td><td>{{ $item->content }}</td>
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ str_limit($item->teaser, $limit = 50, $end = ' ...') }}</td>
+                                        <td>{{ str_limit($item->content, $limit = 50, $end = ' ...') }}</td>
                                         <td>
                                             <a href="{{ url('/admin/posts/' . $item->id) }}" title="View Post"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/posts/' . $item->id . '/edit') }}" title="Edit Post"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
