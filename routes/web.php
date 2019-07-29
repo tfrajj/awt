@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = App\Post::all();
+    return view('welcome', ['posts' => $posts]);
+});
+
+Route::get('/post/{id}', function ($id) {
+    $post = App\Post::findOrFail($id);
+
+    return view('post', ['post' => $post]);
 });
 
 Auth::routes();

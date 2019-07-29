@@ -81,19 +81,16 @@
             @endif
 
             <section class="content">
-                 @foreach($posts as $item)
                  <article>
                      <header>
                          <h2>
-                             <a href="{{ url("/post/{$item->id}") }}">{{ $item->title }}</a>                 
+                             {{ $post->title }}
                          </h2>
                      </header>
                      <p>
-                         {{ $item->teaser }}
+                         {{ $post->content }}
                      </p>
                  </article>
-                 <hr>
-                 @endforeach
             </section>
 
         </div>
